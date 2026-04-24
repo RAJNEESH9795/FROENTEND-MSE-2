@@ -4,7 +4,7 @@ function StarRating({ rating }) {
   return (
     <div className="stars">
       {[1, 2, 3, 4, 5].map(star => (
-        <span key={star} className={star <= Math.round(rating) ? 'star filled' : 'star'}>★</span>
+        <span key={star} className={star <= Math.round(rating) ? 'star filled' : 'star'}>★</span> // Math.round is used to round the rating to the nearest whole number for correct star display (e.g., 4.5 should show 5 stars)
       ))}
       <span className="rating-value">({rating})</span>
     </div>

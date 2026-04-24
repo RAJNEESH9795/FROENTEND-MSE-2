@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Cart({ items, onRemove, onClose, onUpdateQty }) {
-  const total = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const total = items.reduce((sum, item) => sum + item.price * item.qty, 0); // changed item.count to item.qty to calculate total based on quantity of each item in the cart --- IGNORE ---
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function Cart({ items, onRemove, onClose, onUpdateQty }) {
                       <button
                         className="qty-btn"
                         onClick={() => onUpdateQty(item.id, item.qty - 1)}
-                        disabled={item.qty <= 1}
+                        disabled={item.qty <= 1} // Disable the button when quantity is 1 to prevent going below 1
                       >−</button>
                       <span className="qty-value">{item.qty}</span>
                       <button

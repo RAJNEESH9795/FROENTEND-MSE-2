@@ -21,7 +21,7 @@ export default function App() {
         p.category.toLowerCase().includes(searchQuery.toLowerCase());
       const matchPrice = p.price >= priceRange.min && p.price <= priceRange.max;//Use inclusive conditions (<=, >=) So boundary values like 500 or 1000 are included
 
-      const matchCategory = category === 'All' || p.category === category; //Compare selected category with product.category and update filteredProducts
+      const matchCategory = category === 'All' || p.category === category;
       return matchSearch && matchPrice && matchCategory;
     });
 
@@ -53,7 +53,7 @@ export default function App() {
     setCartItems(prev => prev.map(i => i.id === id ? { ...i, qty } : i));
   }
 
-  const cartCount = cartItems.reduce((sum, i) => sum + i.qty, 0);
+  const cartCount = cartItems.reduce((sum, i) => sum + i.qty, 0); // Changed i.count to i.qty to reflect the correct quantity in the cart badge
   const cartItemIds = new Set(cartItems.map(i => i.id));
 
   return (
